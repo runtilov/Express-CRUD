@@ -4,7 +4,11 @@ class SQLRepo {
     }
 
     async add(task) {
-        if (task === undefined) return { err: 'No task recieved' };
+        if (task === undefined) {
+            return {
+                err: 'No task recieved',
+            };
+        }
         console.log(`Adding: ${task}`);
 
         return this.Model.create({
@@ -19,10 +23,18 @@ class SQLRepo {
     }
 
     async remove(taskID) {
-        if (taskID === undefined) return { err: 'TaskID not found' };
+        if (taskID === undefined) {
+            return {
+                err: 'Task id not found',
+            };
+        }
         console.log(`Deleting: ${taskID}`);
 
-        return this.Model.destroy({ where: { id: taskID } });
+        return this.Model.destroy({
+            where: {
+                id: taskID,
+            },
+        });
     }
 }
 

@@ -6,10 +6,17 @@ class RamRepo {
     }
 
     async add(task) {
-        if (task === undefined) return undefined;
+        if (task === undefined) {
+            return {
+                err: 'No task recieved',
+            };
+        }
         console.log(`Adding: ${task}`);
 
-        return this._data.push({ id: this._getNextID(), task });
+        return this._data.push({
+            id: this._getNextID(),
+            task,
+        });
     }
 
     async list() {
@@ -18,7 +25,11 @@ class RamRepo {
     }
 
     async remove(taskID) {
-        if (taskID === undefined) return { err: 'TaskID not found' };
+        if (taskID === undefined) {
+            return {
+                err: 'Task id not found',
+            };
+        }
         console.log(`Removing id: ${taskID}`);
         const index = this._data.findIndex(elem => (elem.id == taskID));
         if (index === -1) throw new Error(`Task with id: ${taskID} doesn't exist`);

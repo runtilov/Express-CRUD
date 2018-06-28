@@ -4,25 +4,39 @@ class MongoRepo {
     }
 
     async add(task) {
-        if (task === undefined) return { err: 'No task recieved' };
+        if (task === undefined) {
+            return {
+                err: 'No task recieved',
+            };
+        }
         console.log(`Adding: ${task}`);
-        const obj = new this.Model({ task });
+        const obj = new this.Model({
+            task,
+        });
         const result = await obj.save();
 
-        return { id: result._id };
+        return {
+            id: result._id,
+        };
     }
 
     async list() {
         console.log('Listing');
         const result = await this.Model.find().exec();
 
-       return result;
+        return result;
     }
 
     async remove(taskID) {
-        if (taskID === undefined) return { err: 'TaskID not found' };
+        if (taskID === undefined) {
+            return {
+                err: 'TaskID not found',
+            };
+        }
         console.log(`Removing: ${taskID}`);
-        const result = await this.Model.remove({ _id: taskID });
+        const result = await this.Model.remove({
+            _id: taskID,
+        });
 
         return result;
     }
