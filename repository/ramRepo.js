@@ -9,7 +9,10 @@ class RamRepo {
         if (task === undefined) return undefined;
         console.log(`Adding: ${task}`);
 
-        return this._data.push({ id: this._getNextID(), task });
+        return this._data.push({
+            id: this._getNextID(),
+            task,
+        });
     }
 
     async list() {
