@@ -1,4 +1,4 @@
-class DBRepo {
+class MYSQLRepo {
   constructor(connection) {
     this._conn = connection;
   }
@@ -33,4 +33,4 @@ class DBRepo {
   }
 }
 
-module.exports = DBRepo;
+module.exports = MYSQLRepo;

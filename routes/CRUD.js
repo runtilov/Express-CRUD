@@ -20,10 +20,10 @@ async function init() {
 
 init();
 
-const DBRepo = require('../repository/dbRepo');
+const MYSQLRepo = require('../repository/mysqlRepo');
 // const RAMRepo = require('../repository/ramRepo');
 
-const todoRepository = new DBRepo(connection);
+const todoRepository = new MYSQLRepo(connection);
 
 router.route('/').get(list);
 
