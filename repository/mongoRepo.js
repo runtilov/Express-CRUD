@@ -1,11 +1,6 @@
 class MongoRepo {
-    constructor(connection, mongoose) {
-        this.conn = connection;
-        this.schema = mongoose.Schema({
-            task: String,
-            date: { type: Date, default: Date.now },
-        });
-        this.Model = mongoose.model('Task', this.schema);
+    constructor(model) {
+        this.Model = model;
     }
 
     async add(task) {
