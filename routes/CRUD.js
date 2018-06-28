@@ -3,7 +3,7 @@ const router = require('express').Router();
 module.exports = router;
 
 async function main() {
-    const todoRepository = await require('../repository/repoMan')('ram');
+    const todoRepository = await require('../repository/repoMan')('sql');
 
     router.route('/').get(list);
 
