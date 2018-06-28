@@ -18,7 +18,7 @@ class RamRepo {
     }
 
     async remove(taskID) {
-        if (taskID === undefined) return { err: "TaskID not found" };
+        if (taskID === undefined) return { err: 'TaskID not found' };
         console.log(`Removing id: ${taskID}`);
         const index = this._data.findIndex(elem => (elem.id == taskID));
         if (index === -1) throw new Error(`Task with id: ${taskID} doesn't exist`);
